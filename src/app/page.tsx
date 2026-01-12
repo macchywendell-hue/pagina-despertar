@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronRight, Mountain, Target, Compass, Shield, Sparkles, TrendingUp } from 'lucide-react'
+import { ChevronRight, Mountain, Target, Compass, Shield, Sparkles, TrendingUp, Zap, Crown, Award } from 'lucide-react'
 
 export default function Home() {
   const [showSuccess, setShowSuccess] = useState(false)
@@ -14,7 +14,7 @@ export default function Home() {
   }, [])
 
   const handleCTA = () => {
-    window.open('https://mpago.li/1tb2KAG', '_blank')
+    window.open('https://mpago.li/2QGG8LC', '_blank')
   }
 
   return (
@@ -97,6 +97,16 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Social Proof Badge */}
+          <div className="flex items-center justify-center gap-3 mb-8 text-sm text-gray-400">
+            <div className="flex -space-x-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#FFD700] border-2 border-black" />
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FFD700] to-[#D4AF37] border-2 border-black" />
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#FFD700] border-2 border-black" />
+            </div>
+            <span className="text-[#D4AF37] font-semibold">+500 pessoas</span> já iniciaram sua jornada
+          </div>
+
           {/* CTA Button with enhanced effects */}
           <button
             onClick={handleCTA}
@@ -106,6 +116,12 @@ export default function Home() {
             <ChevronRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
+
+          {/* Urgency text */}
+          <p className="mt-4 text-sm text-gray-400 flex items-center justify-center gap-2">
+            <Zap className="w-4 h-4 text-[#D4AF37]" />
+            Vagas limitadas para acompanhamento personalizado
+          </p>
 
           {/* Scroll indicator */}
           <div className="mt-20 animate-bounce">
@@ -302,26 +318,74 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#D4AF37]/50" />
             <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#D4AF37]/50" />
             
-            <div className="relative z-10">
+            {/* Premium Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black text-sm font-bold flex items-center gap-2">
+              <Crown className="w-4 h-4" />
+              OFERTA EXCLUSIVA
+            </div>
+            
+            <div className="relative z-10 mt-4">
               <p className="text-5xl md:text-6xl font-bold mb-2 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 O DESPERTAR
               </p>
-              <p className="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-8 drop-shadow-[0_0_20px_rgba(212,175,55,0.6)]">
-                R$297
-              </p>
+              
+              {/* Price with strikethrough */}
+              <div className="mb-6">
+                <p className="text-2xl text-gray-500 line-through mb-2">
+                  De R$297,00
+                </p>
+                <p className="text-5xl md:text-6xl font-bold text-[#D4AF37] drop-shadow-[0_0_20px_rgba(212,175,55,0.6)]">
+                  R$39,99
+                </p>
+                <p className="text-sm text-[#D4AF37] mt-2 font-semibold">
+                  Economia de 87% - Apenas hoje!
+                </p>
+              </div>
+              
+              {/* Benefits list */}
+              <div className="mb-8 space-y-3 text-left max-w-md mx-auto">
+                {[
+                  'Acesso imediato ao conteúdo completo',
+                  'Acompanhamento estratégico personalizado',
+                  'Suporte direto da equipe'
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-3 text-gray-300">
+                    <Award className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
+                    <span className="text-sm">{benefit}</span>
+                  </div>
+                ))}
+              </div>
               
               <button
                 onClick={handleCTA}
-                className="group/btn relative inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black font-bold text-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] shadow-[0_0_20px_rgba(212,175,55,0.4)] mb-6"
+                className="group/btn relative inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black font-bold text-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] shadow-[0_0_20px_rgba(212,175,55,0.4)] mb-6 w-full justify-center"
               >
                 <span className="relative z-10">Começar Agora</span>
                 <ChevronRight className="w-6 h-6 relative z-10 transition-transform group-hover/btn:translate-x-1" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
               </button>
 
-              <p className="text-sm text-gray-400 tracking-wider">
-                Primeiro degrau do sistema O Novo Império.
-              </p>
+              <div className="space-y-2">
+                <p className="text-sm text-gray-400 tracking-wider">
+                  Primeiro degrau do sistema O Novo Império.
+                </p>
+                <p className="text-xs text-[#D4AF37] flex items-center justify-center gap-2">
+                  <Zap className="w-3 h-3" />
+                  Vagas limitadas - Garanta a sua agora
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex items-center justify-center gap-8 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-[#D4AF37]" />
+              <span>Pagamento Seguro</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 text-[#D4AF37]" />
+              <span>Acesso Imediato</span>
             </div>
           </div>
         </div>
@@ -358,6 +422,9 @@ export default function Home() {
               Após seus primeiros avanços, nossa equipe irá te direcionar<br />
               para o próximo nível da sua ascensão.
             </p>
+            <p className="text-[#D4AF37] font-bold text-2xl">
+              Por apenas R$39,99 você inicia sua transformação hoje.
+            </p>
           </div>
 
           <button
@@ -368,6 +435,10 @@ export default function Home() {
             <ChevronRight className="w-6 h-6 relative z-10 transition-transform group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
+
+          <p className="mt-6 text-sm text-gray-500">
+            Investimento único de R$39,99 - Sem mensalidades
+          </p>
         </div>
       </section>
 
